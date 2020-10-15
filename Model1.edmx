@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ESocietyDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BusinessOutlet">
+          <Key>
+            <PropertyRef Name="Bno" />
+          </Key>
+          <Property Name="Bno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessOutletType" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="ContactUs" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DoctorsAppointment">
+          <Key>
+            <PropertyRef Name="Appid" />
+          </Key>
+          <Property Name="Appid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="time" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Dat" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="mobileno" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GasAgency">
+          <Key>
+            <PropertyRef Name="Gno" />
+          </Key>
+          <Property Name="Gno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gname" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phnno" Type="bigint" Nullable="false" />
+          <Property Name="gasagen" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="applydate" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guard">
+          <Key>
+            <PropertyRef Name="SN" />
+          </Key>
+          <Property Name="SN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="blockno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Contact" Type="bigint" Nullable="false" />
+          <Property Name="Checkin" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Checkout" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceAppoint">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="contactno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceProvider">
+          <Key>
+            <PropertyRef Name="SPID" />
+          </Key>
+          <Property Name="Service" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Availablity" Type="varchar" MaxLength="50" />
+          <Property Name="Charges" Type="bigint" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="699" />
+          <Property Name="OpeningTime" Type="varchar" MaxLength="50" />
+          <Property Name="ClosingTime" Type="varchar" MaxLength="50" />
+          <Property Name="SPID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SocietyMemberInfo">
+          <Key>
+            <PropertyRef Name="SMID" />
+          </Key>
+          <Property Name="SMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="40" />
+          <Property Name="ContactNumber" Type="bigint" Nullable="false" />
+          <Property Name="AccountType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="HouseNo" Type="varchar" MaxLength="10" />
+          <Property Name="BusinessName" Type="varchar" MaxLength="30" />
+          <Property Name="Rent" Type="bigint" />
+        </EntityType>
+        <EntityContainer Name="ESocietyDBModelStoreContainer">
+          <EntitySet Name="BusinessOutlet" EntityType="Self.BusinessOutlet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DoctorsAppointment" EntityType="Self.DoctorsAppointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GasAgency" EntityType="Self.GasAgency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="guard" EntityType="Self.guard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceAppoint" EntityType="Self.ServiceAppoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceProvider" EntityType="Self.ServiceProvider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SocietyMemberInfo" EntityType="Self.SocietyMemberInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ESocietyDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SocietyMemberInfo">
+          <Key>
+            <PropertyRef Name="SMID" />
+          </Key>
+          <Property Name="SMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNumber" Type="Int64" Nullable="false" />
+          <Property Name="AccountType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HouseNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Rent" Type="Int64" />
+        </EntityType>
+        <EntityContainer Name="ESocietyDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SocietyMemberInfoes" EntityType="Self.SocietyMemberInfo" />
+          <EntitySet Name="ServiceProviders" EntityType="ESocietyDBModel.ServiceProvider" />
+          <EntitySet Name="BusinessOutlets" EntityType="ESocietyDBModel.BusinessOutlet" />
+          <EntitySet Name="GasAgencies" EntityType="ESocietyDBModel.GasAgency" />
+          <EntitySet Name="DoctorsAppointments" EntityType="ESocietyDBModel.DoctorsAppointment" />
+          <EntitySet Name="ServiceAppoints" EntityType="ESocietyDBModel.ServiceAppoint" />
+          <EntitySet Name="guards" EntityType="ESocietyDBModel.guard" />
+        </EntityContainer>
+        <EntityType Name="ServiceProvider">
+          <Key>
+            <PropertyRef Name="SPID" />
+          </Key>
+          <Property Name="Service" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Availablity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Charges" Type="Int64" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="699" FixedLength="false" Unicode="false" />
+          <Property Name="OpeningTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClosingTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SPID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="BusinessOutlet">
+          <Key>
+            <PropertyRef Name="Bno" />
+          </Key>
+          <Property Name="Bno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessOutletType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactUs" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GasAgency">
+          <Key>
+            <PropertyRef Name="Gno" />
+          </Key>
+          <Property Name="Gno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gname" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phnno" Type="Int64" Nullable="false" />
+          <Property Name="gasagen" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="applydate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DoctorsAppointment">
+          <Key>
+            <PropertyRef Name="Appid" />
+          </Key>
+          <Property Name="Appid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="time" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Dat" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="category" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobileno" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ServiceAppoint">
+          <Key>
+            <PropertyRef Name="SID" />
+          </Key>
+          <Property Name="SID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="contactno" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="guard">
+          <Key>
+            <PropertyRef Name="SN" />
+          </Key>
+          <Property Name="SN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="blockno" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="Int64" Nullable="false" />
+          <Property Name="Checkin" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Checkout" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ESocietyDBModelStoreContainer" CdmEntityContainer="ESocietyDBEntities">
+          <EntitySetMapping Name="SocietyMemberInfoes">
+            <EntityTypeMapping TypeName="ESocietyDBModel.SocietyMemberInfo">
+              <MappingFragment StoreEntitySet="SocietyMemberInfo">
+                <ScalarProperty Name="SMID" ColumnName="SMID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="HouseNo" ColumnName="HouseNo" />
+                <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+                <ScalarProperty Name="Rent" ColumnName="Rent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceProviders">
+            <EntityTypeMapping TypeName="ESocietyDBModel.ServiceProvider">
+              <MappingFragment StoreEntitySet="ServiceProvider">
+                <ScalarProperty Name="SPID" ColumnName="SPID" />
+                <ScalarProperty Name="ClosingTime" ColumnName="ClosingTime" />
+                <ScalarProperty Name="OpeningTime" ColumnName="OpeningTime" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Charges" ColumnName="Charges" />
+                <ScalarProperty Name="Availablity" ColumnName="Availablity" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessOutlets">
+            <EntityTypeMapping TypeName="ESocietyDBModel.BusinessOutlet">
+              <MappingFragment StoreEntitySet="BusinessOutlet">
+                <ScalarProperty Name="ContactUs" ColumnName="ContactUs" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="BusinessOutletType" ColumnName="BusinessOutletType" />
+                <ScalarProperty Name="Bno" ColumnName="Bno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GasAgencies">
+            <EntityTypeMapping TypeName="ESocietyDBModel.GasAgency">
+              <MappingFragment StoreEntitySet="GasAgency">
+                <ScalarProperty Name="applydate" ColumnName="applydate" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gasagen" ColumnName="gasagen" />
+                <ScalarProperty Name="Phnno" ColumnName="Phnno" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gname" ColumnName="Gname" />
+                <ScalarProperty Name="Gno" ColumnName="Gno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoctorsAppointments">
+            <EntityTypeMapping TypeName="ESocietyDBModel.DoctorsAppointment">
+              <MappingFragment StoreEntitySet="DoctorsAppointment">
+                <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="Dat" ColumnName="Dat" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Appid" ColumnName="Appid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceAppoints">
+            <EntityTypeMapping TypeName="ESocietyDBModel.ServiceAppoint">
+              <MappingFragment StoreEntitySet="ServiceAppoint">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="contactno" ColumnName="contactno" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="SID" ColumnName="SID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="guards">
+            <EntityTypeMapping TypeName="ESocietyDBModel.guard">
+              <MappingFragment StoreEntitySet="guard">
+                <ScalarProperty Name="Checkout" ColumnName="Checkout" />
+                <ScalarProperty Name="Checkin" ColumnName="Checkin" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="blockno" ColumnName="blockno" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SN" ColumnName="SN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
